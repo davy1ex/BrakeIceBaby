@@ -1,11 +1,11 @@
 import {Routes, BrowserRouter, Route} from 'react-router-dom'
 import './App.css'
-import Login from './pages/Login'
-import LangingPage from './pages/LangingPage'
-import UserProfile from './pages/UserProfile'
-import ProtectedRoutes from './features/auth/ProtectedRoutes'
-import UnprotectedRoutes from './features/auth/UnprotectedRoutes'
-import NotFoundPage from './pages/NotFoundPage'
+import Login from '../pages/Login'
+import LangingPage from '../pages/LangingPage'
+import UserProfile from '../pages/UserProfile'
+import ProtectedRoutes from '../features/auth/routes/ProtectedRoutes'
+import UnprotectedRoutes from '../features/auth/routes/UnprotectedRoutes'
+import NotFoundPage from '../pages/NotFoundPage'
 
 
 function App() {
