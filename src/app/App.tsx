@@ -1,11 +1,14 @@
 import {Routes, BrowserRouter, Route} from 'react-router-dom'
 import './App.css'
-import Login from '../pages/Login'
-import LangingPage from '../pages/LangingPage'
-import UserProfile from '../pages/UserProfile'
+
 import ProtectedRoutes from '../features/auth/routes/ProtectedRoutes'
 import UnprotectedRoutes from '../features/auth/routes/UnprotectedRoutes'
+import Login from '../pages/Login'
+import LangingPage from '../pages/LangingPage'
+import UserProfilePage from '../pages/UserProfilePage'
 import NotFoundPage from '../pages/NotFoundPage'
+import FeedPage from '../pages/FeedPage'
+import MatchesPage from '../pages/MatchesPage'
 
 
 function App() {
@@ -13,7 +16,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/app' element={<ProtectedRoutes/>}>
-              <Route path='profile' element={<UserProfile/>} />
+              <Route path='profile' element={<UserProfilePage/>} />
+              <Route path='feed' element={<FeedPage/>} />
+              <Route path='matches' element={<MatchesPage/>} />
+
+
           </Route>
           
           <Route path='/' element={<UnprotectedRoutes/>} >

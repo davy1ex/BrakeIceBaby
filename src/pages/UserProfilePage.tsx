@@ -15,7 +15,7 @@ const LogoutButton = () => {
     );
 };
 
-const UserProfile = () => {
+const UserProfilePage = () => {
   return (
     <>
         <div>UserProfile</div>
@@ -24,4 +24,4 @@ const UserProfile = () => {
   )
 }
 
-export default UserProfile
+export default UserProfilePage
