@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import DockBar from './DockBar';
+import TopBar from './TopBar';
 
 const MainLayout = () => {
   return (
@@ -23,6 +24,7 @@ const MainLayout = () => {
             overflow: 'auto',
           }}
         >
+          <TopBar/>
           <Outlet />
         </div>
 

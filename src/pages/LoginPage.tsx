@@ -9,7 +9,7 @@ import store, { RootState } from '../store/store'
 import { useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const LoginPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isAuthenticated, loading, error } = useSelector((state: RootState) => state.auth);
@@ -42,4 +42,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage
