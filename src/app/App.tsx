@@ -9,6 +9,7 @@ import UserProfilePage from '../pages/UserProfilePage'
 import NotFoundPage from '../pages/NotFoundPage'
 import FeedPage from '../pages/FeedPage'
 import MatchesPage from '../pages/MatchesPage'
+import ChatPage from '../pages/ChatPage'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           <Route path='/app' element={<ProtectedRoutes/>}>
               <Route path='profile' element={<UserProfilePage/>} />
               <Route path='feed' element={<FeedPage/>} />
+              <Route path='chat' element={<ChatPage/>} />
+
               <Route path='matches' element={<MatchesPage/>} />
           </Route>
           

@@ -1,58 +1,40 @@
-import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HomeOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import './CustomMenu.css'; // Файл для стилей
 
-type MenuItem = Required<MenuProps>['items'][number];
-
-const items: MenuItem[] = [
-  {
-    key: 'feed',
-    icon: <MailOutlined />,
-  },
-  {
-
-    key: 'matches',
-    icon: <AppstoreOutlined />,
-
-  },
-  {
-
-    key: 'profile',
-    icon: <SettingOutlined />,
-    // children: [
-    //   {
-    //     type: 'group',
-    //     label: 'Item 1',
-    //     children: [
-    //       { label: 'Option 1', key: 'setting:1' },
-    //       { label: 'Option 2', key: 'setting:2' },
-    //     ],
-    //   },
-    //   {
-    //     type: 'group',
-    //     label: 'Item 2',
-    //     children: [
-    //       { label: 'Option 3', key: 'setting:3' },
-    //       { label: 'Option 4', key: 'setting:4' },
-    //     ],
-    //   },
-    // ],
-  },
-];
-
-const DockBar: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
+const DockBar = () => {
+  const [activeKey, setActiveKey] = useState('home');
   const navigate = useNavigate()
 
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-    return navigate('/app/' + e.key)
+  const handleMenuClick = (key) => {
+    setActiveKey(key);
+    console.log(`Clicked on: ${key}`);
+    navigate('/app/' + key)
   };
 
-  return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+  return (
+    <div className="menu">
+      <div
+        className={`menu-item ${activeKey === 'feed' ? 'active' : ''}`}
+        onClick={() => handleMenuClick('feed')}
+      >
+        <HomeOutlined className="menu-icon" />
+      </div>
+      <div
+        className={`menu-item ${activeKey === 'chat' ? 'active' : ''}`}
+        onClick={() => handleMenuClick('chat')}
+      >
+        <SettingOutlined className="menu-icon" />
+      </div>
+      <div
+        className={`menu-item ${activeKey === 'profile' ? 'active' : ''}`}
+        onClick={() => handleMenuClick('profile')}
+      >
+        <UserOutlined className="menu-icon" />
+      </div>
+    </div>
+  );
 };
 
 export default DockBar;
