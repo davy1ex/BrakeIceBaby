@@ -19,8 +19,6 @@ function App() {
               <Route path='profile' element={<UserProfilePage/>} />
               <Route path='feed' element={<FeedPage/>} />
               <Route path='matches' element={<MatchesPage/>} />
-
-
           </Route>
           
           <Route path='/' element={<UnprotectedRoutes/>} >
