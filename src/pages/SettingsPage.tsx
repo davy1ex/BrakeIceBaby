@@ -1,5 +1,5 @@
 import React from 'react'
-import { logout } from '../features/auth/authActions';
+import { logout } from '../features/auth/models/authActions';
 import { useDispatch } from 'react-redux';
 
 const LogoutButton = () => {

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { logout } from "../features/auth/authActions";
+import { logout } from "../features/auth/models/authActions";
 import ProfileCard from "../entities/profile/profileCard";
 
 const LogoutButton = () => {

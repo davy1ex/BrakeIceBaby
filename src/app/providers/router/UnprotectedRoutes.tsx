@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { RootState } from '../../../utils/store'
+import { RootState } from '../store/store'
 
 const UnprotectedRoutes = () => {
     const isAuthenticated = useSelector((state:RootState) => state.auth.isAuthenticated)

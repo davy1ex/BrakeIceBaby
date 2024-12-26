@@ -13,15 +13,13 @@ export const userLogin = createAsyncThunk(
                 'Content-type': 'application/json',
             },
         }
-        console.log("kek", apiUrl)
+        
         const { data } = await axios.post(
             `http://localhost:3000/api/signin`,
             { login, password },
             config
         )
-        console.log("DATA", data)
 
-        // localStorage.setItem('userToken', data.token)
         return data
     }
 )
