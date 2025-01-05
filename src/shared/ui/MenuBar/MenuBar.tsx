@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
-import './CustomMenu.css'; // Файл для стилей
+import './MenuBar.css'; // Файл для стилей
 
-const DockBar = () => {
-  const [activeKey, setActiveKey] = useState('home');
+const MenuBar = () => {
+  const activeKey = location.pathname.split('/').pop(); 
   const navigate = useNavigate()
 
-  const handleMenuClick = (key) => {
-    setActiveKey(key);
-    console.log(`Clicked on: ${key}`);
+  const handleMenuClick = (key: string) => {
     navigate('/app/' + key)
   };
 
@@ -37,4 +35,4 @@ const DockBar = () => {
   );
 };
 
-export default DockBar;
+export default MenuBar;

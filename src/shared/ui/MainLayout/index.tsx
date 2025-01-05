@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
-import DockBar from './DockBar';
+import MenuBar from '../MenuBar/MenuBar';
 import TopBar from './TopBar';
 
 const MainLayout = () => {
@@ -30,7 +30,7 @@ const MainLayout = () => {
 
         {/* DockBar at Bottom */}
         
-          <DockBar style={{
+          <MenuBar style={{
             height: '50px',
             width: '100%',
           }} />

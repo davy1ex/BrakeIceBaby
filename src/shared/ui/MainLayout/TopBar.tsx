@@ -17,13 +17,15 @@ const TopBar = () => {
 
   return (
     <div className='topBarContainer' style={styles.topBarContainer}>
-      {!useLocation().pathname.split('/').includes('profile')? (
-        <div className="backButton" onClick={() => {navigate('/app/profile')}}>
-        👈
+      <div className="leftButtons" style={styles.leftButtons}>
+        {!useLocation().pathname.split('/').includes('profile')? (
+          <div className="backButton" onClick={() => {navigate('/app/profile')}}>
+          👈
+          </div>
+        ) : ("")}
       </div>
-      ) : ("")}
       
-      <div className="rightButtons" style={styles.rightButton}>
+      <div className="rightButtons" style={styles.rightButtons}>
         <button style={styles.button}>👨‍💻</button>
         <button style={styles.button} onClick={() => {handleClick('settings')}}>⚙</button>
       </div>
@@ -43,9 +45,18 @@ const styles = {
     marginLeft: "15px"
   },
 
-  rightButton: {
+  leftButtons: {
     width: "50%",
-    justifySelf: "flex-end"
+    display: "flex",
+    justifySelf: "flex-end",
+  },
+
+  rightButtons: {
+    width: "50%",
+    display: "flex",
+    justifySelf: "flex-end",
+    justifyContent: "end"
+
   }
 }
 
