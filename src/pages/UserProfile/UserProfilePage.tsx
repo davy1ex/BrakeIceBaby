@@ -1,4 +1,5 @@
 import { Layout } from "antd"
+import { Navigate, useNavigate } from "react-router-dom";
 
 const profileMockUp = {
     profilePic:
@@ -10,10 +11,17 @@ const profileMockUp = {
 };
 
 const UserProfilePage = ({profile = profileMockUp}) => {
-  return (
+    const navigate = useNavigate()
+
+    return (
         <Layout>
             <div className="userContainer" style={styles.userContainer}>
-                <img src={profile.profilePic} alt="profile picture" style={{width: "150px", borderRadius: "100%"}}/>
+                <img 
+                    src={profile.profilePic} 
+                    alt="profile picture" 
+                    style={{width: "150px", borderRadius: "100%"}}
+                    onClick={()=>navigate('preview')}
+                />
                 
                 <div className="profile" style={styles.profile}>
                     <div className="profileInfo" style={styles.profileInfo}>

@@ -1,8 +1,5 @@
-import { AppRouter } from './providers/router'
+import AppRouter from './providers/router'
 import './App.css'
-
-
-
 
 function App() {
   return (

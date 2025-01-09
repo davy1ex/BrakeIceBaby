@@ -1,20 +1,20 @@
 interface ProfileCardIn {
-    profilePic: string;
-    profileName: string;
+    urlPic: string;
+    firstName: string;
     profileDesc: string;
 }
 
 const ProfileCard = ({
-    profilePic,
-    profileName,
+    urlPic,
+    firstName,
     profileDesc,
 }: ProfileCardIn) => {
     return (
         <div className="profileCardContainer" style={styles.profileCard}>
-            <img style={styles.profileCard.profileImg} src={profilePic} alt="profile pic"/>
+            <img style={styles.profileCard.profileImg} src={urlPic} alt="profile pic"/>
 
             <div className="profileInfo" style={styles.profileCard.profileInfo}>
-                <div className="profileName" style={styles.profileCard.profileInfo.profileName}>{profileName}</div>
+                <div className="firstName" style={styles.profileCard.profileInfo.firstName}>{firstName}</div>
                 <div className="profileDesc" style={styles.profileCard.profileInfo.profileDesc}>{profileDesc}</div>
             </div>
         </div>
@@ -48,7 +48,7 @@ const styles = {
             padding: "0 10px",
             textShadow: "black 0 0 5px",
 
-            profileName: {
+            firstName: {
                 fontSize: "50px"
             },
 
