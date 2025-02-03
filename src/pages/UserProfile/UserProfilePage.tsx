@@ -1,23 +1,16 @@
 import { Layout } from "antd"
 import { Navigate, useNavigate } from "react-router-dom";
+import { fetchUserProfile } from "./mockUpData";
+import { useEffect, useState } from "react";
 
-const profileMockUp = {
-    profilePic:
-        "https://funny.klev.club/smeh/uploads/posts/2024-04/funny-klev-club-bu5y-p-smeshnie-kartinki-super-sus-18.jpg",
-    profileName: "Супер сус",
-    profileBirthday: "01-01-2000",
-    profileDesc:
-        "Всё нормально, я Супер Сус. 20 лет тут лазил, лазию и буду лазить",
-};
-
-const UserProfilePage = ({profile = profileMockUp}) => {
+const UserProfileInfo =({name, birthDay, picture}) => {
     const navigate = useNavigate()
 
     return (
         <Layout>
             <div className="userContainer" style={styles.userContainer}>
                 <img 
-                    src={profile.profilePic} 
+                    src={picture} 
                     alt="profile picture" 
                     style={{width: "150px", borderRadius: "100%"}}
                     onClick={()=>navigate('preview')}
@@ -25,8 +18,8 @@ const UserProfilePage = ({profile = profileMockUp}) => {
                 
                 <div className="profile" style={styles.profile}>
                     <div className="profileInfo" style={styles.profileInfo}>
-                        <div className="profileName">{profile.profileName},</div>
-                        <div className="profileAge">{profile.profileBirthday}</div>
+                        <div className="profileName">{name},</div>
+                        <div className="profileAge">{birthDay}</div>
                     </div>
                     
                     <div className="userControls" style={styles.userControls}>
@@ -39,10 +32,35 @@ const UserProfilePage = ({profile = profileMockUp}) => {
                     </div>
                 </div>
             </div>
+        </Layout>)
+}
 
-        </Layout>
-    
-  )
+const UserProfilePage = () => {
+    const [profileData, setProfileData] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        fetchUserProfile.then((data) => {
+            setProfileData(data)
+            
+            setIsLoading(false)
+
+            console.log("getted")})
+    }, [])
+
+    return (
+        <>
+        {isLoading 
+            ? "LOADING" 
+            : <UserProfileInfo  
+                name={profileData.name} 
+                birthDay={profileData.birthDay}
+                picture={profileData.picture}
+            />
+        }
+        </>
+        
+    )
 }
 
 
